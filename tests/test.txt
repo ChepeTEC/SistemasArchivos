@@ -1,7 +1,86 @@
-CREATE test.txt 100
-WRITE test.txt 0 "Hola mundo"
-READ test.txt 0 10
+CREATE documento.txt 500
+CREATE imagen.png 1200
+CREATE datos.bin 300
 LIST
-DELETE test.txt
+WRITE documento.txt 0 "Este es el contenido del primer archivo"
+READ documento.txt 0 45
+WRITE imagen.png 0 "Datos de imagen simulados"
+READ imagen.png 0 25
+WRITE datos.bin 0 "1234567890"
+READ datos.bin 0 10
+LIST
+WRITE documento.txt 45 " - texto adicional al final"
+READ documento.txt 0 70
+WRITE imagen.png 25 " con extension"
+READ imagen.png 20 20
+WRITE datos.bin 10 "ABCDEF"
+READ datos.bin 5 11
+LIST
+WRITE documento.txt 70 " mas datos"
+WRITE documento.txt 80 " continuacion"
+READ documento.txt 0 95
+CREATE log.txt 200
+WRITE log.txt 0 "=== INICIO DE LOG ==="
+WRITE log.txt 22 " [INFO] Sistema activo"
+WRITE log.txt 45 " [ERROR] Problema detectado"
+READ log.txt 0 70
+LIST
+READ archivo_inexistente.txt 0 10
+WRITE archivo_inexistente.txt 0 "datos"
+DELETE archivo_inexistente.txt
+WRITE documento.txt 600 "fuera de limites"
+WRITE datos.bin 350 "excede tamaño"
+CREATE demasiado_grande.txt 2000000
+LIST
+DELETE imagen.png
+LIST
+DELETE datos.bin
+LIST
+CREATE nuevo.txt 100
+WRITE nuevo.txt 0 "Archivo nuevo después de eliminar"
+READ nuevo.txt 0 35
+LIST
+CREATE arch1.txt 50
+CREATE arch2.txt 50
+CREATE arch3.txt 50
+CREATE arch4.txt 50
+CREATE arch5.txt 50
+LIST
+CREATE especial.txt 150
+WRITE especial.txt 0 "Texto con numeros 123 y simbolos"
+WRITE especial.txt 50 "Caracteres especiales"
+READ especial.txt 0 80
+READ especial.txt 40 50
+LIST
+CREATE temp1.txt 80
+CREATE temp2.txt 80
+CREATE temp3.txt 80
+WRITE temp1.txt 0 "Contenido temporal 1"
+WRITE temp2.txt 0 "Contenido temporal 2"
+WRITE temp3.txt 0 "Contenido temporal 3"
+READ temp1.txt 0 20
+READ temp2.txt 0 20
+READ temp3.txt 0 20
+DELETE temp1.txt
+DELETE temp2.txt
+DELETE temp3.txt
+LIST
+CREATE integridad.txt 60
+WRITE integridad.txt 0 "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+READ integridad.txt 0 36
+WRITE integridad.txt 10 "abcdefghij"
+READ integridad.txt 0 36
+READ integridad.txt 5 15
+LIST
+DELETE documento.txt
+DELETE log.txt
+DELETE nuevo.txt
+DELETE arch1.txt
+DELETE arch2.txt
+DELETE arch3.txt
+DELETE arch4.txt
+DELETE arch5.txt
+DELETE especial.txt
+DELETE integridad.txt
 LIST
 EXIT

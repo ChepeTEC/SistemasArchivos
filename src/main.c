@@ -47,7 +47,7 @@ int main() {
             continue;
         }
         
-        // DEBUG: Mostrar tokens (puedes comentar esto después)
+        // DEBUG: Mostrar tokens
         printf("DEBUG: Tokens encontrados: ");
         for (int i = 0; i < token_count; i++) {
             printf("[%s] ", tokens[i]);
@@ -66,7 +66,6 @@ int main() {
             if (token_count < 4) {
                 printf("Error: Uso: WRITE <nombre_archivo> <offset> \"<data>\"\n");
             } else {
-                // Combinar todos los tokens desde el 3 en adelante como datos
                 char data[256] = "";
                 for (int i = 3; i < token_count; i++) {
                     if (i > 3) strcat(data, " ");
