@@ -1,0 +1,7 @@
+CREATE test.txt 100
+WRITE test.txt 0 "Hola mundo"
+READ test.txt 0 10
+LIST
+DELETE test.txt
+LIST
+EXIT
